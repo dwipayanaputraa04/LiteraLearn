@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "484044321471",
+    "project_id": "literalearn-773da8d4",
+    "storage_bucket": "literalearn-773da8d4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484044321471:android:2b3e97fe38cc8287354c0a",
+        "android_client_info": {
+          "package_name": "com.dwipayana.literalearn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2uK6XEIuncMIbcSv5FZXiL2Z4bXZ5_go"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
