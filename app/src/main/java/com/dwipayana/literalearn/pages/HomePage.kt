@@ -48,6 +48,7 @@ fun HomePage(
         factory = RecommendationViewModel.Factory(context)
     )
     val predictedModule by recommendationViewModel.predictedModule.collectAsState()
+    val predictedVideoUrl by recommendationViewModel.predictedVideoUrl.collectAsState()
     val recommendationMessage by recommendationViewModel.recommendationMessage.collectAsState()
 
     LaunchedEffect(Unit) {
@@ -305,7 +306,7 @@ fun HomePage(
 
         // --- TFLite ML Recommendation Section ---
         predictedModule?.let { moduleName ->
-            TFLiteRecommendationSection(moduleName, recommendationMessage)
+            TFLiteRecommendationSection(moduleName, recommendationMessage, predictedVideoUrl)
         }
         
         Spacer(modifier = Modifier.height(32.dp))
@@ -313,7 +314,9 @@ fun HomePage(
 }
 
 @Composable
-fun TFLiteRecommendationSection(moduleName: String, message: String) {
+fun TFLiteRecommendationSection(moduleName: String, message: String, videoUrl: String) {
+    val uriHandler = androidx.compose.ui.platform.LocalUriHandler.current
+
     Column(modifier = Modifier.padding(16.dp)) {
         Text(
             text = "Rekomendasi Pintar ✨",
@@ -366,6 +369,7 @@ fun TFLiteRecommendationSection(moduleName: String, message: String) {
                 Spacer(modifier = Modifier.height(16.dp))
                 
                 Surface(
+                    onClick = { uriHandler.openUri(videoUrl) },
                     color = Color.White,
                     shape = RoundedCornerShape(16.dp),
                     border = BorderStroke(1.dp, Color(0xFFE1BEE7))

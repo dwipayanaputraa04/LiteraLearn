@@ -87,10 +87,11 @@ fun MateriScreen(
                 }
 
                 items(modules) { module ->
-                    val displayTitle = if (module.title.contains("Bab", ignoreCase = true)) {
-                        module.title
-                    } else {
-                        "Bab ${module.order}: ${module.title}"
+                    val displayTitle = when {
+                        module.title.contains("Bab", ignoreCase = true) || 
+                        module.title.contains("Chapter", ignoreCase = true) -> module.title
+                        mapel == "Bahasa Inggris" -> "Chapter ${module.order}: ${module.title}"
+                        else -> "Bab ${module.order}: ${module.title}"
                     }
                     
                     // Logika Kunci Kuis
